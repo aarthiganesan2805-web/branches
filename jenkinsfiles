@@ -2,21 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Code') {
+        stage('Build') {
             steps {
-                git branch:'main',url:'https://github.com/aarthiganesan2805-web/branches'
-            }
-        }
-
-        stage('Compile Code') {
-            steps {
-                bat'javac Demo.java'
-            }
-        }
-
-        stage('Run Code') {
-            steps {
-                bat 'java Demo'
+                echo "Building branch ${env.BRANCH_NAME}"
             }
         }
     }
